@@ -1,0 +1,93 @@
+---
+clusterName: pikaviestin
+# renovate: depName=ghcr.io/siderolabs/installer datasource=docker
+talosVersion: v1.9.1
+# renovate: depName=ghcr.io/siderolabs/kubelet datasource=docker
+kubernetesVersion: v1.30.2
+
+cniConfig:
+  name: none
+
+
+endpoint: https://10.0.199.10:6443
+domain: cluster.local
+allowSchedulingOnMasters: true
+additionalMachineCertSans:
+  - "127.0.0.1"
+  - "10.0.199.170"
+additionalApiServerCertSans:
+  - cluster.local
+clusterPodNets:
+  - 10.240.0.0/16
+  - fd41:074e:1368::/48
+clusterSvcNets:
+  - 10.96.0.0/16
+  - fd8f:a397:985a::/112
+
+
+nodes:
+  - hostname: m1
+    ipAddress: 10.0.199.170
+    controlPlane: true
+    installDisk: /dev/sda
+    schematic: &amd-schematic
+      customization:
+        systemExtensions:
+          officialExtensions:
+            - siderolabs/qemu-guest-agent
+            - siderolabs/util-linux-tools
+    disableSearchDomain: true
+    networkInterfaces:
+      - deviceSelector:
+          hardwareAddr: bc:24:11:e5:e2:bb
+        addresses:
+          - 10.0.199.170/24
+          - 2001:67c:1be8:199::170:1/64
+        dhcp: false
+        routes:
+          - network: "0.0.0.0/0"
+            gateway: "10.0.199.1"
+            metric: 10
+          - network: "::/0"
+            gateway: "2001:67c:1be8:199::1"
+            metric: 1
+        vip:
+          ip: 10.0.199.10
+      - deviceSelector:
+         hardwareAddr: bc:24:11:5a:96:3f
+         addresses:
+           - 91.232.154.170/24
+         routes:
+           - network: "0.0.0.0/0"
+             gateway: "91.232.154.1"
+             metric: 1
+  - hostname: w1
+    ipAddress: 10.0.199.171
+    controlPlane: false
+    installDisk: /dev/sda
+    schematic: *amd-schematic
+    disableSearchDomain: true
+    networkInterfaces:
+      - interface: bond0
+        bond:
+          mode: active-backup
+          interfaces:
+            - enp0s31f6
+        dhcp: false
+        routes:
+          - network: "::/0"
+            gateway: "fd9d:7a72:44eb:c::1"
+            metric: 1
+
+
+patches:
+  - "@./patches/global/cluster-discovery.yaml"
+  - "@./patches/global/containerd.yaml"
+  - "@./patches/global/kubelet.yaml"
+  - "@./patches/global/nfs.yaml"
+  - "@./patches/global/sysctl.yaml"
+  - "@./patches/global/disable-kexec.yaml"
+
+controlPlane:
+  patches:
+    - "@./patches/controller/cluster.yaml"

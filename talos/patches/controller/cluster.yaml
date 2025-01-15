@@ -1,0 +1,6 @@
+cluster:
+  allowSchedulingOnMasters: true
+  coreDNS:
+    disabled: true
+  proxy:
+    disabled: true
