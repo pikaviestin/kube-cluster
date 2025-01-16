@@ -99,6 +99,8 @@ repoServer:
           value: ENC[AES256_GCM,data:2lVzzQ==,iv:IdLxeEYBQnJiizAU5FDGQU61+sE3LQXVFB5XCBMc6Xg=,tag:OOGyDyj2GEuI3r+n3y/swg==,type:str]
         - name: ENC[AES256_GCM,data:eJWbCziD/C5Cnqu5/SYL/mqKNtFusA==,iv:+jUFdSjiSM3NqNw6PqbgzgONkpSnplKl4VIvjEJ5BoI=,tag:SyobFBslEjGTlNLiO/N4lw==,type:str]
           value: ENC[AES256_GCM,data:BcN2S8p47bkDFgyjpxm6D9d/2Q==,iv:PCKL346igGLwsjr0se20EXy8ptMJctDdI1yIX9Q9XaQ=,tag:AlPF7RESkr3qdznBz1NGJA==,type:str]
+        - name: ENC[AES256_GCM,data:UEfK8Hkn6tngzvBedgrXWsg=,iv:MQIy13KsZVpJod4yMpREo528eslw1qgJ1nrdJ977k/o=,tag:UO7YTFyiK8VZ/I6kFspStA==,type:str]
+          value: ENC[AES256_GCM,data:pOaGa36C/3UcroEJYf5U87l8AIvJHRLr+Hz+NWdf6DEhpw==,iv:mMo+rTtNKdmx84Jqy+ifpBvzVwA3DLwT3tJfbl/zozk=,tag:O2OVyHgJ82AbPfCipfThUQ==,type:str]
     volumes:
         - name: ENC[AES256_GCM,data:T94YggShdJ9r8QKX,iv:Vdlm1ef68qnBm86eMRjQ9MowZ0fpZofAAWTJgXT/xDM=,tag:LnQ9frs/I8RT/eYKTIgcvA==,type:str]
           emptyDir: {}
@@ -154,8 +156,8 @@ sops:
     azure_kv: []
     hc_vault: []
     age: []
-    lastmodified: "2025-01-16T02:57:37Z"
-    mac: ENC[AES256_GCM,data:fm0FGqrKdTrKyZFpZCSRfHocu5cQ36a2krfOi9y1MCakYSe2lDa9heKtCEOABICsa6uEm2WANITLA2asf8Bo8C302YVQwDd2WMdjzPCBlhBo/UqVifPVdRIbrC5hmuKOwkP9ZRNT/3Z3/nyoZb2IxNemQ5PgQMOtXPJG3bthYXs=,iv:CAx2R5Rr1JYIp8waK+ZL9x/K1/r8metuXl4kg5ab5dE=,tag:fU3Lp7yDOd171wCjtENZOQ==,type:str]
+    lastmodified: "2025-01-16T04:10:27Z"
+    mac: ENC[AES256_GCM,data:YTD2l3OCn67SRwtDAQrzQ13Tsp/Pyi5FPTMAkfzEJaXIEZoVI1rkiLZ5yvwJoJ35jqqwy/OvqNtAffo/CP1p2cIvKA/oQvmpsD4M+wTE+1/ro+HneM2F4R2anE4h/hQZbOf0UECYCbC61F3CRO/Ch2hEBmIsp8Om1S4Y3/l6zOg=,iv:p5Od7znp3QUEfueclxzzEyW9egoHMLj8XmL7+dxbVqk=,tag:au6C8Qr/ei9aKORcW13MtA==,type:str]
     pgp:
         - created_at: "2025-01-16T02:34:47Z"
           enc: |-
