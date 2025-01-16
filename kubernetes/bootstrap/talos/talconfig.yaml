@@ -57,6 +57,7 @@ nodes:
          hardwareAddr: bc:24:11:5a:96:3f
          addresses:
            - 91.232.154.170/24
+         dhcp: false
          routes:
            - network: "0.0.0.0/0"
              gateway: "91.232.154.1"

@@ -1,0 +1,63 @@
+cgroup:
+    automount:
+        enabled: false
+    hostRoot: /sys/fs/cgroup
+k8sServiceHost: 127.0.0.1
+k8sServicePort: 7445
+rollOutCiliumPods: true
+localRedirectPolicy: true
+autoDirectNodeRoutes: true
+kubeProxyReplacement: true
+kubeProxyReplacementHealthzBindAddr: 0.0.0.0:10256
+loadBalancer:
+    algorithm: maglev
+    mode: dsr
+l7Proxy: true
+routingMode: native
+ipam:
+    mode: kubernetes
+ipv4NativeRoutingCIDR: 10.240.0.0/16
+ipv6NativeRoutingCIDR: fd41:074e:1368::/48
+ipv6:
+    enabled: true
+securityContext:
+    capabilities:
+        ciliumAgent:
+            - CHOWN
+            - KILL
+            - NET_ADMIN
+            - NET_RAW
+            - IPC_LOCK
+            - SYS_ADMIN
+            - SYS_RESOURCE
+            - DAC_OVERRIDE
+            - FOWNER
+            - SETGID
+            - SETUID
+        cleanCiliumState:
+            - NET_ADMIN
+            - SYS_ADMIN
+            - SYS_RESOURCE
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age: []
+    lastmodified: "2025-01-16T01:25:28Z"
+    mac: ENC[AES256_GCM,data:44N71vKB+VxsIhS2v1DuxWD8Vg8m68wNbpK7n3z125YMvvYlR5XYfqkcMK35vAQRMTD3OfF0u3ojIw7/lQpQu1xDxhI0tZ26OY4zLzcRy/wNHczFqyiyCDq+IDEkAGWoxG25CDB5uLmoMRrTsgEs6DKhSHGVTMF4azcUOM1iHg4=,iv:MT4uitiqYPENdt+hMjn1glAGTyCSdcWP6l5Tii3ZnCQ=,tag:+6aHQIgEZ7v3J762ZCSSBQ==,type:str]
+    pgp:
+        - created_at: "2025-01-16T01:25:28Z"
+          enc: |-
+            -----BEGIN PGP MESSAGE-----
+
+            hF4DLyJzPvsY9TESAQdAKdP1XZtBKdri/j0Vxnt/Nc8poN+8i9r69rYqjWyzviww
+            dBZFKNvEaYNZmusOueu/vcCEqefY2QPwtlKa1TwJnWIIBHQJE2Kz5FHRfPPqIxbr
+            1GYBCQIQQVE7l7fsqAAwWQnzEsdwwma1LK5rTomKU2S1ty8trQaiehVqfNgfTmOV
+            cdwoiHxwfYbr9awAhwSLpDAR4UBauBOYG6luX/cAWthAfCcsX3m0hwxQOSrC2nQU
+            00Wp/eoju90=
+            =0NN5
+            -----END PGP MESSAGE-----
+          fp: 90F388ADD3E186B00A1D77855CBFF29F9005BCE1
+    encrypted_regex: ^(data|stringData)$
+    version: 3.9.1
