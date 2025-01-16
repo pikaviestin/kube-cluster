@@ -7,9 +7,9 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: #{ bootstrap_github_address }#
+    repoURL: https://github.com/pikaviestin/kube-cluster.git
     path: kubernetes/argo/repositories
-    targetRevision: #{ bootstrap_github_branch }#
+    targetRevision: main
   destination:
     name: in-cluster
     namespace: argo-system
