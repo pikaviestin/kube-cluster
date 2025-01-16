@@ -3,7 +3,6 @@ helmDefaults:
   wait: true
   waitForJobs: true
   timeout: 600
-  recreatePods: true
   force: true
 
 repositories:
@@ -23,8 +22,8 @@ releases:
     namespace: kube-system
     chart: cilium/cilium
     version: 1.16.5
-    secrets:
-      - ../apps/kube-system/cilium/values.sops.yaml
+    values:
+      - ../apps/kube-system/cilium/values.yaml
     needs:
       - observability/prometheus-operator-crds
   - name: coredns
@@ -36,16 +35,6 @@ releases:
     needs:
       - observability/prometheus-operator-crds
       - kube-system/cilium
-  - name: kubelet-csr-approver
-    namespace: kube-system
-    chart: postfinance/kubelet-csr-approver
-    version: 1.2.5
-    values:
-      - ../apps/kube-system/kubelet-csr-approver/values.yaml
-    needs:
-      - observability/prometheus-operator-crds
-      - kube-system/cilium
-      - kube-system/coredns
   - name: spegel
     namespace: kube-system
     chart: oci://ghcr.io/spegel-org/helm-charts/spegel
@@ -55,7 +44,6 @@ releases:
     needs:
       - kube-system/cilium
       - kube-system/coredns
-      - kube-system/kubelet-csr-approver
   - name: argo
     namespace: argo-system
     chart: oci://ghcr.io/argoproj/argo-helm/argo-cd
@@ -66,5 +54,4 @@ releases:
     needs:
       - kube-system/cilium
       - kube-system/coredns
-      - kube-system/kubelet-csr-approver
       - kube-system/spegel

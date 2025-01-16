@@ -37,7 +37,7 @@ tasks:
     desc: Bootstrap Argo into the Talos cluster
     cmds:
       - '{{if eq .SOPS_SECRET_EXISTS "false"}}kubectl create namespace argo-system --dry-run=client -o yaml | kubectl apply --filename -{{end}}'
-      - '{{if eq .SOPS_SECRET_EXISTS "false"}}cat {{.SOPS_AGE_KEY_FILE}} | kubectl --namespace argo-system create secret generic helm-secrets-private-keys --from-file=key.txt=/dev/stdin{{end}}'
+#      - '{{if eq .SOPS_SECRET_EXISTS "false"}}cat {{.SOPS_AGE_KEY_FILE}} | kubectl --namespace argo-system create secret generic helm-secrets-private-keys --from-file=key.txt=/dev/stdin{{end}}'
       - kubectl apply --server-side --filename {{.KUBERNETES_DIR}}/argo
     vars:
       SOPS_SECRET_EXISTS:
