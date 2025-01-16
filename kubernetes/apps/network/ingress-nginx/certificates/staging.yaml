@@ -1,0 +1,13 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: pikaviestin-fi-staging
+spec:
+  secretName: pikaviestin-fi-staging-tls
+  issuerRef:
+    name: letsencrypt-staging
+    kind: ClusterIssuer
+  commonName: pikaviestin.fi
+  dnsNames:
+    - pikaviestin.fi
+    - '*.pikaviestin.fi'
