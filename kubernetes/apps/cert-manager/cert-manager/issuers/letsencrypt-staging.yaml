@@ -12,8 +12,8 @@ spec:
       - dns01:
          rfc2136:
            nameserver: 91.232.154.53
-           tsigKeyName: pikaviestink8s
-           tsigAlgorithm: HMACSHA512
+           tsigKeyName: pikaviestin-k8s
+           tsigAlgorithm: HMACSHA256
            tsigSecretSecretRef:
              name: cert-manager-bind-kapsi-secret
              key: secret
