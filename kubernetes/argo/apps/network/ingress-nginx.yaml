@@ -19,7 +19,7 @@ spec:
       helm:
         releaseName: ingress-nginx
         valueFiles:
-          - $repo/kubernetes/apps/network/ingress-nginx/values.yaml
+          - $repo/kubernetes/apps/network/ingress-nginx/app/values.yaml
   destination:
     name: in-cluster
     namespace: network
