@@ -13,7 +13,7 @@ spec:
           rfc2136:
             nameserver: 91.232.154.53
             tsigkeyName: pikaviestink8s
-            tsigAlgorithm: HMACSHA256
+            tsigAlgorithm: HMACSHA512
             tsigSecretSecretRef:
               name: cert-manager-bind-kapsi-secret
               key: secret
