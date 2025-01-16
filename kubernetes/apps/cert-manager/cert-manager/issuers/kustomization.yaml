@@ -3,8 +3,3 @@ kind: Kustomization
 
 generators:
   - secret-generator.yaml
-
-resources:
-  - letsencrypt-production.yaml
-  - letsencrypt-staging.yaml
-  - cert-manager-bind-kapsi-secret.sops.yaml
