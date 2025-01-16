@@ -1,19 +1,11 @@
 ---
 creation_rules:
   - path_regex: bootstrap/talos/*\.sops\.ya?ml
-    key_groups:
-      - pgp:
-          - 90F388ADD3E186B00A1D77855CBFF29F9005BCE1
+    pgp: 90F388ADD3E186B00A1D77855CBFF29F9005BCE1
   - path_regex: kubernetes/apps/argo-system/.*\.sops\.ya?ml
-    key_groups:
-      - pgp:
-          - 90F388ADD3E186B00A1D77855CBFF29F9005BCE1
-      - age:
-          - age17yknr4glwla35z0jvz2hev2ngyk9kxx4g952lnx39efx4xyerussnwhdud # Argo
+    pgp: 90F388ADD3E186B00A1D77855CBFF29F9005BCE1
+    age: age17yknr4glwla35z0jvz2hev2ngyk9kxx4g952lnx39efx4xyerussnwhdud # Argo
   - path_regex: kubernetes/.*\.sops\.ya?ml
     encrypted_regex: "^(data|stringData)$"
-    key_groups:
-      - pgp:
-          - 90F388ADD3E186B00A1D77855CBFF29F9005BCE1
-      - age:
-          - age17yknr4glwla35z0jvz2hev2ngyk9kxx4g952lnx39efx4xyerussnwhdud # Argo
+    pgp: 90F388ADD3E186B00A1D77855CBFF29F9005BCE1
+    age: age17yknr4glwla35z0jvz2hev2ngyk9kxx4g952lnx39efx4xyerussnwhdud # Argo
