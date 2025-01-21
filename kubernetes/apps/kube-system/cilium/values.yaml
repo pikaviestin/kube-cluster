@@ -14,11 +14,14 @@ loadBalancer:
     mode: dsr
 l7Proxy: true
 routingMode: native
+devices: eth+
 ipam:
     mode: kubernetes
 ipv4NativeRoutingCIDR: 10.240.0.0/16
 ipv6NativeRoutingCIDR: fd41:074e:1368::/48
 ipv6:
+    enabled: true
+externalIPs:
     enabled: true
 securityContext:
     capabilities:
