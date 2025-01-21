@@ -23,6 +23,8 @@ ipv6:
     enabled: true
 externalIPs:
     enabled: true
+operator:
+    replicas: 1
 securityContext:
     capabilities:
         ciliumAgent:
