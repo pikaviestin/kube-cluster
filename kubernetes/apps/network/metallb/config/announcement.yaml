@@ -4,5 +4,7 @@ metadata:
   name: announcement
   namespace: metallb-system
 spec:
+  ipAddressPools:
+    - main-pool
   interfaces:
     - eth1
