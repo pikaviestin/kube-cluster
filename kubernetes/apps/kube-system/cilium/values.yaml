@@ -21,12 +21,8 @@ ipv4NativeRoutingCIDR: 10.240.0.0/16
 ipv6NativeRoutingCIDR: fd41:074e:1368::/48
 ipv6:
     enabled: true
-externalIPs:
-    enabled: true
 operator:
     replicas: 1
-nodeIPAM:
-    enabled: true
 securityContext:
     capabilities:
         ciliumAgent:

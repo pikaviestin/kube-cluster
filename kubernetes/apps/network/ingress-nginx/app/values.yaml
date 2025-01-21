@@ -18,15 +18,10 @@ controller:
     proxy-buffer-size: 16k
     ssl-protocols: TLSv1.3 TLSv1.2
   use-forwarded-headers: "true"
-  service:
+  publishService:
+    enabled: false
+  hostPort:
     enabled: true
-    type: LoadBalancer
-    annotations:
-      metallb.universe.tf/loadBalancerIPs: "91.232.154.172,2001:67c:1be8::172"
-    ipFamilyPolicy: "PreferDualStack"
-    ipFamilies:
-      - IPv4
-      - IPv6
 
   resources:
     requests:
